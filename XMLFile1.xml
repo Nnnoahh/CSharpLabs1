@@ -1,0 +1,40 @@
+﻿string xml = @"
+<log>
+	<event date=""27=""/May/1999:02:32:46 "" result=""success"">
+	<ip-from> 195.151.62.18 </ip-from>
+	<method>GET</method>
+	<url-to> /mise/</url-to>
+	<response>200</response>
+	</event>
+	<event date="" 27=""/May/1999:02:41:47 "" result=""success"">
+	<ip-from> 195.209.248.12 </ip-from>
+	<method>GET</method>
+	<url-to>soft.htm</url-to>
+	<response>200</response>
+	</event>
+	<event date=""27=""/May/1999:02:32:46 "" result=""success"">
+	<ip-from> 195.151.62.18 </ip-from>
+	<method>GET</method>
+	<url-to> /mise/</url-to>
+	<response>200</response>
+	</event>
+	<event date="" 27=""/May/1999:02:41:47 "" result=""success"">
+	<ip-from> 195.209.248.12 </ip-from>
+	<method>GET</method>
+	<url-to>soft.htm</url-to>
+	<response>200</response>
+	</event>
+</log>";
+
+Log log = XmlParser.Parse(xml);
+
+foreach (Event evnt in log.Events)
+{
+Console.WriteLine($"Date: {evnt.Date}");
+Console.WriteLine($"Result: {evnt.Result}");
+Console.WriteLine($"IP From: {evnt.IpFrom}");
+Console.WriteLine($"Method: {evnt.Method}");
+Console.WriteLine($"URL To: {evnt.UrlTo}");
+Console.WriteLine($"Response: {evnt.Response}");
+Console.WriteLine();
+}
